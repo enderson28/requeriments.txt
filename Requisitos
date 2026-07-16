@@ -1,0 +1,3 @@
+Este archivo le dice a Render qué librerías de Python debe instalar para que tu bot funcione.
+python-telegram-bot==20.8
+google-genai==0.1.1
