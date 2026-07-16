@@ -11,12 +11,11 @@ logging.basicConfig(
     level=logging.INFO
 )
 
-# 1. Leer variables de entorno (Asegúrate de configurarlas en la consola de Bash primero)
+# 1. Leer variables de entorno
 TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 # 2. Configurar cliente de Gemini 
-# El SDK oficial detectará el proxy HTTP de PythonAnywhere de forma automática
 ai_client = genai.Client(api_key=GEMINI_API_KEY)
 
 # Instrucciones de comportamiento para la IA
@@ -65,14 +64,12 @@ def main():
         logging.error("ERROR: Faltan las variables de entorno TELEGRAM_TOKEN o GEMINI_API_KEY.")
         return
 
-    # 3. Configurar Telegram para que use el PROXY obligatorio de PythonAnywhere
-    # Si no se define este proxy, Telegram no podrá recibir ni enviar mensajes en cuentas gratis.
     proxy_url = "http://proxy.server:3128"
     
     application = (
         Application.builder()
         .token(TELEGRAM_TOKEN)
-        .proxy(proxy_url)          # <--- ¡ESTO EVITA EL BLOQUEO DE PYTHONANYWHERE!
+        .proxy(proxy_url)
         .get_updates_proxy(proxy_url)
         .build()
     )
@@ -85,5 +82,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-                
-            
