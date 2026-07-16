@@ -11,7 +11,7 @@ level=logging.INFO)
 TELEGRAM_TOKEN = os.getenv("8632019517:AAGDJQBkJMdRRCwXrEfaoct3DkQSD-CZ-ZA")
 GEMINI_API_KEY = os.getenv("AQ.Ab8RN6L3NW7UAQKxGp-nhe8lP747i2Dc42xaoHh__IyRXbnMMA")
 # Inicializar cliente de Gemini
-ai_client = genai.Client(api_key=GEMINI_API_KEY.)
+ai_client = genai.Client(api_key=GEMINI_API_KEY)
 # Instrucciones del sistema para definir la personalidad y reglas de la IA
 PROMPT_CONTEXTO = (
 "Eres un asistente virtual automatizado para el canal de atención. Tu único propósito es " "responder dudas sobre operaciones internacionales, envío de remesas y recarga/traspaso "
