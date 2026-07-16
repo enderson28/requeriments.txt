@@ -12,8 +12,8 @@ logging.basicConfig(
 )
 
 # Obtener las credenciales desde variables de entorno
-TELEGRAM_TOKEN = os.getenv("8632019517:AAGDJQBkJMdRRCwXrEfaoct3DkQSD-CZ-ZA")
-GEMINI_API_KEY = os.getenv("AQ.Ab8RN6L3NW7UAQKxGp-nhe8lP747i2Dc42xaoHh__IyRXbnMMA")
+TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN", "8632019517:AAGDJQBkJMdRRCwXrEfaoct3DkQSD-CZ-ZA")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "AQ.Ab8RN6L3NW7UAQKxGp-nhe8lP747i2Dc42xaoHh__IyRXbnMMA")
 
 # Inicializar cliente de Gemini
 ai_client = genai.Client(api_key=GEMINI_API_KEY)
@@ -85,4 +85,4 @@ def main():
 
 if __name__ == '__main__':
     main()
-                
+            
